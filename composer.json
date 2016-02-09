@@ -6,7 +6,8 @@
         "draperstudio/laravel-service-provider": "^1.0",
         "illuminate/database": "5.1.*|5.2.*",
         "nesbot/carbon": ">=1.21.0",
-        "spatie/laravel-medialibrary": "^3.1"
+        "spatie/laravel-medialibrary": "^3.1",
+		"cviebrock/eloquent-sluggable": "3.1.*"
     },
     "autoload": {
         "psr-4": {
