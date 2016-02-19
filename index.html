@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Laravel Rewardable by DraperStudio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Laravel Rewardable</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/DraperStudio/Laravel-Rewardable" class="btn">View on GitHub</a>
+      <a href="https://github.com/DraperStudio/Laravel-Rewardable/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/DraperStudio/Laravel-Rewardable/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="laravel-rewardable" class="anchor" href="#laravel-rewardable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Laravel Rewardable</h1>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>First, pull in the package through Composer.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer require draperstudio/laravel-rewardable:^1.0</pre></div>
+
+<p>And then include the service provider within <code>app/config/app.php</code>.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-s"><span class="pl-pds">'</span>providers<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> [</span>
+<span class="pl-s1">    <span class="pl-c1">DraperStudio\Rewardable\</span><span class="pl-c1">ServiceProvider</span><span class="pl-k">::</span><span class="pl-c1">class</span></span>
+<span class="pl-s1">];</span></pre></div>
+
+<p>At last you need to publish and run the migration.</p>
+
+<pre><code>php artisan vendor:publish --provider="DraperStudio\Rewardable\ServiceProvider" &amp;&amp; php artisan migrate
+</code></pre>
+
+<h2>
+<a id="setup-a-model" class="anchor" href="#setup-a-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup a Model</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">namespace</span> <span class="pl-en">App</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// use DraperStudio\Rewardable\Traits\Badgeable as BadgeableTrait;</span></span>
+<span class="pl-s1"><span class="pl-c">// use DraperStudio\Rewardable\Traits\Creditable as CreditableTrait;</span></span>
+<span class="pl-s1"><span class="pl-c">// use DraperStudio\Rewardable\Traits\Rankable as RankableTrait;</span></span>
+<span class="pl-s1"><span class="pl-c">// use DraperStudio\Rewardable\Traits\Transactionable as TransactionableTrait;</span></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">DraperStudio\Rewardable\Traits\Rewardable</span> <span class="pl-k">as</span> <span class="pl-c1">RewardableTrait</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">Illuminate\Database\Eloquent\Model</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">User</span> <span class="pl-k">extends</span> <span class="pl-e">Model</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">use</span> <span class="pl-c1">RewardableTrait</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// these can be required one-by-one if you don't need all and don't use RewardableTrait</span></span>
+<span class="pl-s1">    <span class="pl-c">// use BadgeableTrait;</span></span>
+<span class="pl-s1">    <span class="pl-c">// use CreditableTrait;</span></span>
+<span class="pl-s1">    <span class="pl-c">// use RankableTrait;</span></span>
+<span class="pl-s1">    <span class="pl-c">// use TransactionableTrait;</span></span>
+<span class="pl-s1">}</span></pre></div>
+
+<h2>
+<a id="classes-and-methods" class="anchor" href="#classes-and-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Classes and Methods</h2>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<h3>
+<a id="get-all-credits-of-a-user" class="anchor" href="#get-all-credits-of-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get all Credits of a user</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>credits();</span></pre></div>
+
+<h3>
+<a id="get-all-credits-of-a-user-1" class="anchor" href="#get-all-credits-of-a-user-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get all Credits of a user</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>getCredit();</span></pre></div>
+
+<h3>
+<a id="get-all-credits-of-a-user-by-credit-type" class="anchor" href="#get-all-credits-of-a-user-by-credit-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get all Credits of a user by Credit type</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>getCreditByType(<span class="pl-smi">$type</span>);</span></pre></div>
+
+<h3>
+<a id="get-the-current-balance-of-a-user" class="anchor" href="#get-the-current-balance-of-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get the current balance of a user</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>getBalance();</span></pre></div>
+
+<h3>
+<a id="get-the-current-balance-of-a-user-by-credit-type" class="anchor" href="#get-the-current-balance-of-a-user-by-credit-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get the current balance of a user by Credit type</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>getBalanceByType(<span class="pl-smi">$type</span>);</span></pre></div>
+
+<h3>
+<a id="get-all-credits-a-user-has-spent" class="anchor" href="#get-all-credits-a-user-has-spent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get all Credits a user has spent</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>getSpendCredits();</span></pre></div>
+
+<h3>
+<a id="grant-a-single-credit" class="anchor" href="#grant-a-single-credit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grant a single Credit</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>grantCredit(<span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>));</span></pre></div>
+
+<h3>
+<a id="grant-multiple-credits" class="anchor" href="#grant-multiple-credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grant multiple Credits</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>grantCredits([</span>
+<span class="pl-s1">    <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h3>
+<a id="revoke-a-single-credit" class="anchor" href="#revoke-a-single-credit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke a single Credit</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeCredit(<span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>));</span></pre></div>
+
+<h3>
+<a id="revoke-multiple-credits" class="anchor" href="#revoke-multiple-credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke multiple Credits</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeCredits([</span>
+<span class="pl-s1">    <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h3>
+<a id="revoke-all-credits" class="anchor" href="#revoke-all-credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke all credits</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeAllCredits();</span></pre></div>
+
+<h3>
+<a id="regrant-all-credits-removes-all-credits-and-assigns-the-new-ones" class="anchor" href="#regrant-all-credits-removes-all-credits-and-assigns-the-new-ones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Regrant all Credits <strong>(Removes all credits and assigns the new ones)</strong>
+</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>reGrantCredits([</span>
+<span class="pl-s1">    <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h3>
+<a id="create-a-new-credit-type" class="anchor" href="#create-a-new-credit-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a new Credit Type</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">CreditType</span><span class="pl-k">::</span>create([<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Participation<span class="pl-pds">'</span></span>]);</span></pre></div>
+
+<h2>
+<a id="badges" class="anchor" href="#badges" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Badges</h2>
+
+<h3>
+<a id="get-all-badges-of-a-user" class="anchor" href="#get-all-badges-of-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get all Badges of a user</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>badges();</span></pre></div>
+
+<h3>
+<a id="grant-a-single-badge" class="anchor" href="#grant-a-single-badge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grant a single Badge</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>grantBadge(<span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>));</span></pre></div>
+
+<h3>
+<a id="grand-multiple-badges" class="anchor" href="#grand-multiple-badges" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grand multiple Badges</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>grantBadges([</span>
+<span class="pl-s1">    <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h3>
+<a id="revoke-a-single-badge" class="anchor" href="#revoke-a-single-badge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke a single badge</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeBadge(<span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>));</span></pre></div>
+
+<h3>
+<a id="revoke-multiple-badges" class="anchor" href="#revoke-multiple-badges" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke multiple Badges</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeBadges([</span>
+<span class="pl-s1">    <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h3>
+<a id="revoke-all-badges" class="anchor" href="#revoke-all-badges" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke all Badges</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeAllBadges();</span></pre></div>
+
+<h3>
+<a id="regrant-all-badges-removes-all-badges-and-assigns-the-new-ones" class="anchor" href="#regrant-all-badges-removes-all-badges-and-assigns-the-new-ones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Regrant all Badges <strong>(Removes all badges and assigns the new ones)</strong>
+</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>reGrantBadges([</span>
+<span class="pl-s1">    <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Badge</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h2>
+<a id="ranks" class="anchor" href="#ranks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ranks</h2>
+
+<h3>
+<a id="get-all-ranks-of-a-user" class="anchor" href="#get-all-ranks-of-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get all Ranks of a user</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>ranks();</span></pre></div>
+
+<h3>
+<a id="grant-a-single-rank" class="anchor" href="#grant-a-single-rank" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grant a single Rank</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>grantRank(<span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>));</span></pre></div>
+
+<h3>
+<a id="grant-multiple-ranks" class="anchor" href="#grant-multiple-ranks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grant multiple Ranks</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>grantRanks([</span>
+<span class="pl-s1">    <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h3>
+<a id="revoke-a-single-rank" class="anchor" href="#revoke-a-single-rank" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke a single Rank</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeRank(<span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>));</span></pre></div>
+
+<h3>
+<a id="revoke-multiple-ranks" class="anchor" href="#revoke-multiple-ranks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke multiple ranks</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeRanks([</span>
+<span class="pl-s1">    <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h3>
+<a id="revoke-all-ranks" class="anchor" href="#revoke-all-ranks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Revoke all Ranks</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>revokeAllRanks();</span></pre></div>
+
+<h3>
+<a id="regrant-all-ranks-removes-all-ranks-and-assigns-the-new-ones" class="anchor" href="#regrant-all-ranks-removes-all-ranks-and-assigns-the-new-ones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Regrant all Ranks <strong>(Removes all ranks and assigns the new ones)</strong>
+</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>reGrantRanks([</span>
+<span class="pl-s1">    <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>), <span class="pl-c1">Rank</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">]);</span></pre></div>
+
+<h2>
+<a id="transactions" class="anchor" href="#transactions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Transactions</h2>
+
+<h3>
+<a id="get-all-transactions-of-a-user" class="anchor" href="#get-all-transactions-of-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get all Transactions of a user</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>transactions();</span></pre></div>
+
+<h3>
+<a id="charge-a-user-the-given-amount-of-points" class="anchor" href="#charge-a-user-the-given-amount-of-points" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Charge a user the given amount of points</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$user</span><span class="pl-k">-&gt;</span>chargeCredits(<span class="pl-c1">Credit</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)<span class="pl-k">-&gt;</span><span class="pl-smi">amount</span>, <span class="pl-c1">CreditType</span><span class="pl-k">::</span>find(<span class="pl-smi">$id</span>)<span class="pl-k">-&gt;</span><span class="pl-smi">id</span>);</span></pre></div>
+
+<h2>
+<a id="to-do" class="anchor" href="#to-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To-Do</h2>
+
+<ul>
+<li>Revoke Credits when Badges/Ranks with a Reward are revoked</li>
+<li>Allow Entites to go in Debt</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/DraperStudio/Laravel-Rewardable">Laravel Rewardable</a> is maintained by <a href="https://github.com/DraperStudio">DraperStudio</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
