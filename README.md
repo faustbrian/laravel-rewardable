@@ -5,7 +5,7 @@
 First, pull in the package through Composer.
 
 ```bash
-$ composer require draperstudio/laravel-rewardable:1.0.*@dev
+$ composer require draperstudio/laravel-rewardable:1.0
 ```
 
 And then include the service provider within `app/config/app.php`.
@@ -47,13 +47,6 @@ class User extends Model
     // use TransactionableTrait;
 }
 ```
-
-## Classes and Methods
-
-- [Credits](docs/credits.md)
-- [Badges](docs/badges.md)
-- [Ranks](docs/ranks.md)
-- [Transactions](docs/transactions.md)
 
 ## To-Do
 - Revoke Credits when Badges/Ranks with a Reward are revoked
