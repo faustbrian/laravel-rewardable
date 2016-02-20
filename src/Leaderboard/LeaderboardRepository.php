@@ -1,16 +1,29 @@
 <?php
 
-namespace DraperStudio\Rewardable\Repositories;
+namespace DraperStudio\Rewardable\Leaderboard;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class LeaderboardRepository.
+ */
 class LeaderboardRepository
 {
+    /**
+     * LeaderboardRepository constructor.
+     *
+     * @param Model $model
+     */
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
+    /**
+     * @param $model
+     *
+     * @return static
+     */
     public function createOrUpdate($model)
     {
         // calculate the experience
@@ -44,6 +57,11 @@ class LeaderboardRepository
         return $record;
     }
 
+    /**
+     * @param $model
+     *
+     * @return float
+     */
     private function calculateExperience($model)
     {
         $points = $model->getCredit();
@@ -61,6 +79,9 @@ class LeaderboardRepository
         return $points * $badges * $ranks / 100;
     }
 
+    /**
+     *
+     */
     public function calculatePositions()
     {
         $records = $this->model->orderBy('experience', 'DESC')->get();

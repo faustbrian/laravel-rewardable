@@ -1,25 +1,40 @@
 <?php
 
-namespace DraperStudio\Rewardable\Repositories;
+namespace DraperStudio\Rewardable\Credits;
 
 use Carbon\Carbon;
-use DraperStudio\Rewardable\Models\Credit;
-use DraperStudio\Rewardable\Models\CreditType;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class CreditRepository.
+ */
 class CreditRepository
 {
+    /**
+     * CreditRepository constructor.
+     *
+     * @param Model $model
+     */
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
+    /**
+     * @return mixed
+     */
     public function getTotalCredit()
     {
         return $this->model->credits()->sum('amount');
     }
 
+    /**
+     * @param $typeId
+     *
+     * @return mixed
+     */
     public function getTotalCreditByType($typeId)
     {
         $type = CreditType::find($typeId);
@@ -30,6 +45,9 @@ class CreditRepository
                     ->sum('amount');
     }
 
+    /**
+     * @return mixed
+     */
     public function getBalance()
     {
         $transactions = $this->model->transactions()->sum('amount');
@@ -38,6 +56,11 @@ class CreditRepository
         return $credits - $transactions;
     }
 
+    /**
+     * @param $typeId
+     *
+     * @return mixed
+     */
     public function getBalanceByType($typeId)
     {
         $type = CreditType::find($typeId);
@@ -52,9 +75,14 @@ class CreditRepository
         return $credits - $transactions;
     }
 
-    public function grantCredit($credit)
+    /**
+     * @param Credit $credit
+     *
+     * @return mixed
+     */
+    public function grantCredit(Credit $credit)
     {
-        $credit = new Credit(array_merge(array_except($credit, ['type']), [
+        $credit = new Credit(array_merge(array_except($credit->toArray(), ['type']), [
             'credit_type_id' => $credit['type']->id,
             'awarded_at' => Carbon::now(),
         ]));
@@ -62,14 +90,20 @@ class CreditRepository
         return $this->model->credits()->save($credit);
     }
 
-    public function grantCredits($credits)
+    /**
+     * @param Collection $credits
+     */
+    public function grantCredits(Collection $credits)
     {
         foreach ($credits as $credit) {
             $this->grantCredit($credit);
         }
     }
 
-    public function revokeCredit($credit)
+    /**
+     * @param Credit $credit
+     */
+    public function revokeCredit(Credit $credit)
     {
         if (is_array($credit)) {
             $revokeReason = $credit['reason'];
@@ -84,24 +118,36 @@ class CreditRepository
         }
     }
 
-    public function revokeCredits($credits)
+    /**
+     * @param Collection $credits
+     */
+    public function revokeCredits(Collection $credits)
     {
         foreach ($credits as $credit) {
             $this->revokeCredit($credit);
         }
     }
 
+    /**
+     *
+     */
     public function revokeAllCredits()
     {
         $this->model->credits()->sync([]);
     }
 
-    public function reGrantCredits($credits)
+    /**
+     * @param Collection $credits
+     */
+    public function reGrantCredits(Collection $credits)
     {
         $this->revokeAllCredits();
         $this->grantCredits($credits);
     }
 
+    /**
+     * @return mixed
+     */
     public function getPivot()
     {
         return DB::table($this->table)
@@ -110,6 +156,11 @@ class CreditRepository
                 ->first();
     }
 
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
     private function getCreditPivotBuilder($id)
     {
         return DB::table($this->model->table)

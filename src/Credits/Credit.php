@@ -1,30 +1,50 @@
 <?php
 
-namespace DraperStudio\Rewardable\Models;
+namespace DraperStudio\Rewardable\Credits;
 
 use DraperStudio\Database\Models\Model;
 use DraperStudio\Database\Traits\Models\PresentableTrait;
-use DraperStudio\Rewardable\Presenters\CreditPresenter;
 use DraperStudio\Rewardable\Repositories\CreditRepository;
 
+/**
+ * Class Credit.
+ */
 class Credit extends Model
 {
     use PresentableTrait;
 
+    /**
+     * @var array
+     */
     protected $dates = ['awarded_at', 'revoked_at'];
 
+    /**
+     * @var array
+     */
     protected $casts = ['meta' => 'array'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
     public function creditable()
     {
         return $this->morphTo('creditable');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function type()
     {
         return $this->belongsTo(CreditType::class, 'credit_type_id');
     }
 
+    /**
+     * @param $query
+     * @param $type
+     *
+     * @return mixed
+     */
     public function scopeWhereType($query, $type)
     {
         return $query->join('credit_types', 'credits.credit_type_id', '=', 'credit_types.id')
@@ -32,11 +52,17 @@ class Credit extends Model
                      ->select('credits.*');
     }
 
+    /**
+     * @return mixed
+     */
     public function getPivot()
     {
         return (new CreditRepository($this))->getPivot();
     }
 
+    /**
+     * @return mixed
+     */
     public function getPresenterClass()
     {
         return CreditPresenter::class;

@@ -1,25 +1,44 @@
 <?php
 
-namespace DraperStudio\Rewardable\Repositories;
+namespace DraperStudio\Rewardable\Ranks;
 
 use Carbon\Carbon;
 use DraperStudio\Rewardable\Exceptions\InsufficientFundsException;
 use DraperStudio\Rewardable\Exceptions\InvalidCreditTypeException;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class RankRepository.
+ */
 class RankRepository
 {
+    /**
+     * RankRepository constructor.
+     *
+     * @param Model $model
+     */
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
     public function getRankPivot($id)
     {
         return $this->getRankPivotBuilder($id)->first();
     }
 
+    /**
+     * @param null $type
+     *
+     * @return mixed
+     */
     public function getRanksPivot($type = null)
     {
         $query = DB::table('ranks_awarded')
@@ -32,7 +51,15 @@ class RankRepository
         return $query->get();
     }
 
-    public function grantRank($rank)
+    /**
+     * @param Rank $rank
+     *
+     * @return bool
+     *
+     * @throws InsufficientFundsException
+     * @throws InvalidCreditTypeException
+     */
+    public function grantRank(Rank $rank)
     {
         // Check if the type of credit exists
         $type = $rank->requirementType;
@@ -62,14 +89,23 @@ class RankRepository
         }
     }
 
-    public function grantRanks($ranks)
+    /**
+     * @param Collection $ranks
+     *
+     * @throws InsufficientFundsException
+     * @throws InvalidCreditTypeException
+     */
+    public function grantRanks(Collection $ranks)
     {
         foreach ($ranks as $rank) {
             $this->grantRank($rank);
         }
     }
 
-    public function revokeRank($rank)
+    /**
+     * @param Rank $rank
+     */
+    public function revokeRank(Rank $rank)
     {
         if (is_array($rank)) {
             $revokeReason = $rank['reason'];
@@ -84,24 +120,38 @@ class RankRepository
         }
     }
 
-    public function revokeRanks($ranks)
+    /**
+     * @param Collection $ranks
+     */
+    public function revokeRanks(Collection $ranks)
     {
         foreach ($ranks as $rank) {
             $this->revokeRank($rank);
         }
     }
 
+    /**
+     *
+     */
     public function revokeAllRanks()
     {
         $this->model->ranks()->sync([]);
     }
 
+    /**
+     * @param $ranks
+     */
     public function reGrantRanks($ranks)
     {
         $this->revokeAllRanks();
         $this->grantRanks($ranks);
     }
 
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
     private function getRankPivotBuilder($id)
     {
         return DB::table('ranks_awarded')

@@ -1,9 +1,12 @@
 <?php
 
-namespace DraperStudio\Rewardable\Presenters;
+namespace DraperStudio\Rewardable\Credits;
 
 use DraperStudio\Database\Presenters\BasePresenter;
 
+/**
+ * Class CreditTypePresenter.
+ */
 class CreditTypePresenter extends BasePresenter
 {
     //

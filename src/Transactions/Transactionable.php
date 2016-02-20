@@ -1,18 +1,32 @@
 <?php
 
-namespace DraperStudio\Rewardable\Traits;
+namespace DraperStudio\Rewardable\Transactions;
 
 use DraperStudio\Rewardable\Exceptions\InsufficientFundsException;
-use DraperStudio\Rewardable\Models\CreditType;
-use DraperStudio\Rewardable\Models\Transaction;
+use DraperStudio\Rewardable\Credits\CreditType;
+use DraperStudio\Rewardable\Transaction\Transaction;
 
+/**
+ * Class Transactionable.
+ */
 trait Transactionable
 {
+    /**
+     * @return mixed
+     */
     public function transactions()
     {
         return $this->morphMany(Transaction::class, 'transactionable');
     }
 
+    /**
+     * @param $amount
+     * @param $typeId
+     *
+     * @return bool
+     *
+     * @throws InsufficientFundsException
+     */
     public function chargeCredits($amount, $typeId)
     {
         // Check if the type of credit exists
