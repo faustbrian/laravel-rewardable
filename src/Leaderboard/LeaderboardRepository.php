@@ -90,9 +90,6 @@ class LeaderboardRepository
         return $points * $badges * $ranks / 100;
     }
 
-    /**
-     *
-     */
     public function calculatePositions()
     {
         $records = $this->model->orderBy('experience', 'DESC')->get();

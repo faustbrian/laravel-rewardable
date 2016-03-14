@@ -11,9 +11,6 @@ use Illuminate\Database\Migrations\Migration;
  */
 class CreateTransactionsTable extends Migration
 {
-    /**
-     *
-     */
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
@@ -29,9 +26,6 @@ class CreateTransactionsTable extends Migration
         });
     }
 
-    /**
-     *
-     */
     public function down()
     {
         Schema::drop('transactions');

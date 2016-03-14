@@ -69,9 +69,6 @@ class Leaderboard extends Model
         return $this->getLeaderboardRepository()->calculateExperience($model);
     }
 
-    /**
-     *
-     */
     private function calculatePositions()
     {
         return $this->getLeaderboardRepository()->calculatePositions();

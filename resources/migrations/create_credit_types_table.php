@@ -11,9 +11,6 @@ use Illuminate\Database\Migrations\Migration;
  */
 class CreateCreditTypesTable extends Migration
 {
-    /**
-     *
-     */
     public function up()
     {
         Schema::create('credit_types', function (Blueprint $table) {
@@ -27,9 +24,6 @@ class CreateCreditTypesTable extends Migration
         });
     }
 
-    /**
-     *
-     */
     public function down()
     {
         Schema::drop('credit_types');

@@ -141,9 +141,6 @@ class BadgeRepository
         }
     }
 
-    /**
-     *
-     */
     public function revokeAllBadges()
     {
         $this->model->badges()->sync([]);

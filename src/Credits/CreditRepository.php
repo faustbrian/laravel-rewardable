@@ -139,9 +139,6 @@ class CreditRepository
         }
     }
 
-    /**
-     *
-     */
     public function revokeAllCredits()
     {
         $this->model->credits()->sync([]);

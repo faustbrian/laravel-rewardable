@@ -11,9 +11,6 @@ use Illuminate\Database\Migrations\Migration;
  */
 class CreateBadgesTable extends Migration
 {
-    /**
-     *
-     */
     public function up()
     {
         Schema::create('badges', function (Blueprint $table) {
@@ -43,9 +40,6 @@ class CreateBadgesTable extends Migration
         });
     }
 
-    /**
-     *
-     */
     public function down()
     {
         Schema::drop('badges');
