@@ -104,9 +104,6 @@ trait Creditable
         return $this->getCreditRepository()->revokeCredits($credits);
     }
 
-    /**
-     *
-     */
     public function revokeAllCredits()
     {
         return $this->getCreditRepository()->revokeAllCredits();

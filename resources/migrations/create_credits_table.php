@@ -11,9 +11,6 @@ use Illuminate\Database\Migrations\Migration;
  */
 class CreateCreditsTable extends Migration
 {
-    /**
-     *
-     */
     public function up()
     {
         Schema::create('credits', function (Blueprint $table) {
@@ -36,9 +33,6 @@ class CreateCreditsTable extends Migration
         });
     }
 
-    /**
-     *
-     */
     public function down()
     {
         Schema::drop('credits');

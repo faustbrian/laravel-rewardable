@@ -11,9 +11,6 @@ use Illuminate\Database\Migrations\Migration;
  */
 class CreateRanksTable extends Migration
 {
-    /**
-     *
-     */
     public function up()
     {
         Schema::create('ranks', function (Blueprint $table) {
@@ -43,9 +40,6 @@ class CreateRanksTable extends Migration
         });
     }
 
-    /**
-     *
-     */
     public function down()
     {
         Schema::drop('ranks');

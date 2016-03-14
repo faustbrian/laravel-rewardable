@@ -81,9 +81,6 @@ trait Rankable
         return $this->getRankRepository()->revokeRanks($ranks);
     }
 
-    /**
-     *
-     */
     public function revokeAllRanks()
     {
         return $this->getRankRepository()->revokeAllRanks();

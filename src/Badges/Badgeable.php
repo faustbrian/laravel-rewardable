@@ -83,9 +83,6 @@ trait Badgeable
         return $this->getBadgeRepository()->revokeBadges($badges);
     }
 
-    /**
-     *
-     */
     public function revokeAllBadges()
     {
         return $this->getBadgeRepository()->revokeAllBadges();

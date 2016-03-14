@@ -141,9 +141,6 @@ class RankRepository
         }
     }
 
-    /**
-     *
-     */
     public function revokeAllRanks()
     {
         $this->model->ranks()->sync([]);
