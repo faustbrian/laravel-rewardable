@@ -17,7 +17,8 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "draperstudio/laravel-service-provider": "^0.1",
-        "draperstudio/laravel-database": "~1.0",
+        "draperstudio/eloquent-models": "^0.1",
+        "draperstudio/eloquent-presenter": "^0.1",
         "illuminate/database": "5.1.* || 5.2.*",
         "nesbot/carbon": ">=1.21.0",
         "spatie/laravel-medialibrary": "^3.1",
