@@ -1,11 +1,22 @@
 <?php
 
+/*
+ * This file is part of Laravel Rewardable.
+ *
+ * (c) DraperStudio <hello@draperstudio.tech>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace DraperStudio\Rewardable\Leaderboard;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class LeaderboardRepository.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
  */
 class LeaderboardRepository
 {

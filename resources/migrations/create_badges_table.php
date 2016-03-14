@@ -4,8 +4,16 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateBadgesTable.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
+ */
 class CreateBadgesTable extends Migration
 {
+    /**
+     *
+     */
     public function up()
     {
         Schema::create('badges', function (Blueprint $table) {
@@ -35,6 +43,9 @@ class CreateBadgesTable extends Migration
         });
     }
 
+    /**
+     *
+     */
     public function down()
     {
         Schema::drop('badges');

@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Laravel Rewardable.
+ *
+ * (c) DraperStudio <hello@draperstudio.tech>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace DraperStudio\Rewardable\Transactions;
 
 use DraperStudio\Rewardable\Exceptions\InsufficientFundsException;
@@ -8,6 +17,8 @@ use DraperStudio\Rewardable\Transaction\Transaction;
 
 /**
  * Class Transactionable.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
  */
 trait Transactionable
 {

@@ -1,14 +1,25 @@
 <?php
 
+/*
+ * This file is part of Laravel Rewardable.
+ *
+ * (c) DraperStudio <hello@draperstudio.tech>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace DraperStudio\Rewardable\Ranks;
 
-use DraperStudio\Database\Models\Model;
-use DraperStudio\Database\Traits\Models\PresentableTrait;
+use DraperStudio\Eloquent\Models\Model;
+use DraperStudio\Eloquent\Presenter\PresentableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 /**
  * Class Rank.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
  */
 class Rank extends Model implements HasMedia
 {

@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace DraperStudio\Rewardable\Ranks;
+namespace DraperStudio\Tests\Rewardable;
 
-use DraperStudio\Eloquent\Presenter\BasePresenter;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
- * Class RankPresenter.
+ * This is the service provider test class.
  *
  * @author DraperStudio <hello@draperstudio.tech>
  */
-class RankPresenter extends BasePresenter
+class ServiceProviderTest extends AbstractTestCase
 {
-    //
+    use ServiceProviderTrait;
 }

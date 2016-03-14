@@ -1,11 +1,19 @@
 <?php
 
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateTransactionsTable.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
+ */
 class CreateTransactionsTable extends Migration
 {
+    /**
+     *
+     */
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
@@ -21,6 +29,9 @@ class CreateTransactionsTable extends Migration
         });
     }
 
+    /**
+     *
+     */
     public function down()
     {
         Schema::drop('transactions');

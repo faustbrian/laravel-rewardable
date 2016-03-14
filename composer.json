@@ -1,18 +1,56 @@
 {
     "name": "draperstudio/laravel-rewardable",
+    "type": "library",
     "description": "Credits, Badges and Ranks for Eloquent Models for Laravel 5",
+    "keywords": [
+        "draperstudio",
+        "laravel-rewardable"
+    ],
+    "homepage": "https://github.com/DraperStudio/laravel-rewardable",
+    "license": "MIT",
+    "authors": [{
+        "name": "DraperStudio",
+        "email": "hello@draperstudio.tech",
+        "homepage": "http://draperstudio.tech",
+        "role": "Developer"
+    }],
     "require": {
-        "php": ">=5.5.9",
-        "draperstudio/laravel-service-provider": "^1.0",
+        "php": "^5.6 || ^7.0",
+        "draperstudio/laravel-service-provider": "^0.1",
         "draperstudio/laravel-database": "~1.0",
-        "illuminate/database": "5.1.*|5.2.*",
+        "illuminate/database": "5.1.* || 5.2.*",
         "nesbot/carbon": ">=1.21.0",
         "spatie/laravel-medialibrary": "^3.1",
         "cviebrock/eloquent-sluggable": "^3.1"
+    },
+    "require-dev": {
+        "graham-campbell/testbench": "^3.1",
+        "mockery/mockery": "^0.9.4",
+        "phpunit/phpunit": "^5.0",
+        "scrutinizer/ocular": "~1.1",
+        "squizlabs/php_codesniffer": "~2.3"
     },
     "autoload": {
         "psr-4": {
             "DraperStudio\\Rewardable\\": "src/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DraperStudio\\Tests\\Rewardable\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
