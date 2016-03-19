@@ -26,12 +26,12 @@ trait Reasonable
      */
     public function getCredits(){
         return $this->morphToMany(Credit::class, 'reasonable');
-	}
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function getBadges(){
         return $this->morphToMany(Badge::class, 'reasonable');
-	}
+    }
 }
