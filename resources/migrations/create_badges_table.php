@@ -32,6 +32,7 @@ class CreateBadgesTable extends Migration
 
             $table->morphs('badgeable');
             $table->timestamp('awarded_at');
+            $table->morphs('reasonable');
 
             $table->text('revoke_reason')->nullable();
             $table->timestamp('revoked_at')->nullable();

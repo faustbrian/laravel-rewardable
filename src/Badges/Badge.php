@@ -40,6 +40,14 @@ class Badge extends Model implements HasMedia
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function reasonable()
+    {
+        return $this->morphTo('reasonable');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function requirementType()

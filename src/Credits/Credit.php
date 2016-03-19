@@ -43,6 +43,14 @@ class Credit extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function reasonable()
+    {
+        return $this->morphTo('reasonable');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function type()
