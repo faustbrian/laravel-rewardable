@@ -25,6 +25,7 @@ class CreateCreditsTable extends Migration
 
             $table->morphs('creditable');
             $table->timestamp('awarded_at');
+			$table->morphs('reasonable');
 
             $table->text('revoke_reason')->nullable();
             $table->timestamp('revoked_at')->nullable();
