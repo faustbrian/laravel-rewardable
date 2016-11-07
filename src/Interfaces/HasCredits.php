@@ -1,8 +1,8 @@
 <?php
 
-namespace BrianFaust\Rewardable\Contracts;
+namespace BrianFaust\Rewardable\Interfaces;
 
-interface Creditable
+interface HasCredits
 {
     public function credits();
 

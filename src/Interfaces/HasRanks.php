@@ -1,8 +1,8 @@
 <?php
 
-namespace BrianFaust\Rewardable\Contracts;
+namespace BrianFaust\Rewardable\Interfaces;
 
-interface Rankable
+interface HasRanks
 {
     public function ranks();
 

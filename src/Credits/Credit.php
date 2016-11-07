@@ -2,7 +2,7 @@
 
 namespace BrianFaust\Rewardable\Credits;
 
-use BrianFaust\Eloquent\Models\Model;
+use BrianFaust\Eloquent\Model;
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
 use BrianFaust\Rewardable\Repositories\CreditRepository;
 

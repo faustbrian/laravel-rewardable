@@ -2,12 +2,10 @@
 
 namespace BrianFaust\Rewardable\Leaderboard;
 
-use BrianFaust\Eloquent\Models\Model;
+use BrianFaust\Eloquent\Model;
 
 class Leaderboard extends Model
 {
-    protected $table = 'leaderboard';
-
     public function boardable()
     {
         return $this->morphTo();

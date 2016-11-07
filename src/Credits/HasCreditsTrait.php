@@ -2,7 +2,7 @@
 
 namespace BrianFaust\Rewardable\Credits;
 
-trait Creditable
+trait HasCreditsTrait
 {
     public function credits()
     {

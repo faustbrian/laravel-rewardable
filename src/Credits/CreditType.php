@@ -2,17 +2,15 @@
 
 namespace BrianFaust\Rewardable\Credits;
 
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
-use BrianFaust\Eloquent\Models\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+use BrianFaust\Eloquent\Model;
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
 
-class CreditType extends Model implements SluggableInterface
+class CreditType extends Model
 {
-    use SluggableTrait;
+    use HasSlug;
     use PresentableTrait;
-
-    protected $sluggable = ['build_from' => 'name'];
 
     public function credits()
     {
@@ -22,5 +20,15 @@ class CreditType extends Model implements SluggableInterface
     public function getPresenterClass()
     {
         return CreditTypePresenter::class;
+    }
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 }

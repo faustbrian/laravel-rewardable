@@ -2,7 +2,7 @@
 
 namespace BrianFaust\Rewardable\Badges;
 
-trait Badgeable
+trait HasBadgesTrait
 {
     public function badges()
     {

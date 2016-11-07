@@ -1,8 +1,8 @@
 <?php
 
-namespace BrianFaust\Rewardable\Contracts;
+namespace BrianFaust\Rewardable\Interfaces;
 
-interface Badgeable
+interface HasBadges
 {
     public function badges();
 

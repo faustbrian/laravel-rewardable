@@ -2,7 +2,7 @@
 
 namespace BrianFaust\Rewardable\Badges;
 
-use BrianFaust\Eloquent\Models\Model;
+use BrianFaust\Eloquent\Model;
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
