@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Rewardable\Traits;
+namespace BrianFaust\Rewardable;
 
 use BrianFaust\Rewardable\Badges\HasBadges;
 use BrianFaust\Rewardable\Credits\HasCredits;
