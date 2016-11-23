@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Laravel Rewardable.
+ *
+ * (c) Brian Faust <hello@brianfaust.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace BrianFaust\Rewardable\Badges;
 
 use Carbon\Carbon;
@@ -26,7 +35,7 @@ class BadgeRepository
         $query = DB::table('badges_awarded')
                     ->where('badgeable_id', $this->model->id);
 
-        if (!empty($type)) {
+        if (! empty($type)) {
             $query = $query->where('badgeable_type', $type);
         }
 
@@ -38,7 +47,7 @@ class BadgeRepository
         // Check if the type of credit exists
         $type = $badge->requirementType;
 
-        if (!$type) {
+        if (! $type) {
             throw new InvalidCreditTypeException($badge->requirement_type_id);
         }
 
@@ -54,7 +63,7 @@ class BadgeRepository
         $record = $this->model->badges()
                               ->where('badge_id', '=', $badge->id)
                               ->count();
-        if (!$record) {
+        if (! $record) {
             $this->model->badges()->attach($badge, [
                 'awarded_at' => Carbon::now(),
             ]);

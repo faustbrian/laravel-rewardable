@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Laravel Rewardable.
+ *
+ * (c) Brian Faust <hello@brianfaust.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace BrianFaust\Rewardable\Ranks;
 
 use Carbon\Carbon;
@@ -26,7 +35,7 @@ class RankRepository
         $query = DB::table('ranks_awarded')
                     ->where('rankable_id', $this->model->id);
 
-        if (!empty($type)) {
+        if (! empty($type)) {
             $query = $query->where('rankable_type', $type);
         }
 
@@ -38,7 +47,7 @@ class RankRepository
         // Check if the type of credit exists
         $type = $rank->requirementType;
 
-        if (!$type) {
+        if (! $type) {
             throw new InvalidCreditTypeException($rank->requirement_type_id);
         }
 
@@ -54,7 +63,7 @@ class RankRepository
         $record = $this->model->ranks()
                               ->where('rank_id', '=', $rank->id)
                               ->count();
-        if (!$record) {
+        if (! $record) {
             $this->model->ranks()->attach($rank, [
                 'awarded_at' => Carbon::now(),
             ]);
