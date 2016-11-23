@@ -1,25 +1,16 @@
 {
     "name": "faustbrian/laravel-rewardable",
     "description": "Credits, Badges and Ranks for Eloquent Models for Laravel 5",
-    "keywords": [
-        "laravel",
-        "framework",
-        "Laravel-messageable",
-        "Laravel Messageable",
-        "Brian Faust",
-        "faustbrian",
-        "laravel-rewardable"
-    ],
+    "keywords": ["laravel", "framework", "Laravel-rewardable", "Laravel Rewardable", "Brian Faust", "faustbrian"],
     "license": "MIT",
     "authors": [{
         "name": "Brian Faust",
         "email": "hello@brianfaust.de",
-        "homepage": "https://brianfaust.de",
-        "role": "Developer"
+        "homepage": "https://brianfaust.de"
     }],
     "require": {
-        "php": "^5.6.4 || ^7.0",
-        "illuminate/database": "5.2.* || 5.3.*",
+        "php": "^7.0",
+        "illuminate/database": "5.3.*",
         "faustbrian/laravel-service-provider": "^1.0",
         "faustbrian/eloquent-models": "^1.0",
         "faustbrian/eloquent-presenter": "^1.0",
