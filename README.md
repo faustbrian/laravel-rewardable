@@ -11,9 +11,7 @@ $ composer require faustbrian/laravel-rewardable
 And then include the service provider within `app/config/app.php`.
 
 ``` php
-'providers' => [
-    BrianFaust\Rewardable\RewardableServiceProvider::class
-];
+BrianFaust\Rewardable\RewardableServiceProvider::class
 ```
 
 To get started, you'll need to publish the vendor assets and migrate:
