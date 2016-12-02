@@ -11,8 +11,8 @@
 
 namespace BrianFaust\Rewardable\Transactions;
 
-use BrianFaust\Rewardable\Exceptions\InsufficientFundsException;
 use BrianFaust\Rewardable\Credits\CreditType;
+use BrianFaust\Rewardable\Exceptions\InsufficientFundsException;
 use BrianFaust\Rewardable\Transaction\Transaction;
 
 trait HasTransactionsTrait
@@ -27,7 +27,7 @@ trait HasTransactionsTrait
         // Check if the type of credit exists
         $type = CreditType::find($typeId);
 
-        if (! $type) {
+        if (!$type) {
             return false;
         }
 
@@ -40,7 +40,7 @@ trait HasTransactionsTrait
 
         // All fine, take the cash
         $transaction = (new Transaction())->fill([
-            'amount' => $amount,
+            'amount'         => $amount,
             'credit_type_id' => $type->id,
         ]);
 
