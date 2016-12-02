@@ -11,10 +11,10 @@
 
 namespace BrianFaust\Rewardable\Credits;
 
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
 use BrianFaust\Eloquent\Model;
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class CreditType extends Model
 {

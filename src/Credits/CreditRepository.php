@@ -64,7 +64,7 @@ class CreditRepository
     {
         $credit = new Credit(array_merge(array_except($credit->toArray(), ['type']), [
             'credit_type_id' => $credit['type']->id,
-            'awarded_at' => Carbon::now(),
+            'awarded_at'     => Carbon::now(),
         ]));
 
         return $this->model->credits()->save($credit);
@@ -87,7 +87,7 @@ class CreditRepository
         if ($credit->count() && empty($credit->revoked_at)) {
             $credit->update([
                 'revoke_reason' => $revokeReason,
-                'revoked_at' => Carbon::now(),
+                'revoked_at'    => Carbon::now(),
             ]);
         }
     }
