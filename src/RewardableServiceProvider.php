@@ -22,9 +22,9 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable;
 
-use BrianFaust\ServiceProvider\ServiceProvider;
+use BrianFaust\ServiceProvider\AbstractServiceProvider;
 
-class RewardableServiceProvider extends ServiceProvider
+class RewardableServiceProvider extends AbstractServiceProvider
 {
     public function boot(): void
     {
