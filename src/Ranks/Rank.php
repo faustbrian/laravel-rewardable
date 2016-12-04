@@ -22,12 +22,12 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Ranks;
 
-use Illuminate\Database\Eloquent\Model;
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 class Rank extends Model implements HasMedia
 {
