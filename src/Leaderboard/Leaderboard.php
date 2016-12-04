@@ -23,8 +23,8 @@ declare(strict_types=1);
 namespace BrianFaust\Rewardable\Leaderboard;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Collection;
 
 class Leaderboard extends Model
 {
