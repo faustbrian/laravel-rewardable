@@ -22,9 +22,11 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Credits;
 
-use BrianFaust\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
 use BrianFaust\Rewardable\Repositories\CreditRepository;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Credit extends Model
 {
@@ -34,12 +36,12 @@ class Credit extends Model
 
     protected $casts = ['meta' => 'array'];
 
-    public function creditable()
+    public function creditable(): MorphTo
     {
         return $this->morphTo('creditable');
     }
 
-    public function type()
+    public function type(): BelongsTo
     {
         return $this->belongsTo(CreditType::class, 'credit_type_id');
     }
@@ -56,7 +58,7 @@ class Credit extends Model
         return (new CreditRepository($this))->getPivot();
     }
 
-    public function getPresenterClass()
+    public function getPresenterClass(): string
     {
         return CreditPresenter::class;
     }

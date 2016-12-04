@@ -22,21 +22,23 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Leaderboard;
 
-use BrianFaust\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Leaderboard extends Model
 {
-    public function boardable()
+    public function boardable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    public function getHighToLow()
+    public function getHighToLow(): Collection
     {
         return $this->orderBy('position', 'asc')->get();
     }
 
-    public function getLowToHigh()
+    public function getLowToHigh(): Collection
     {
         return $this->orderBy('position', 'desc')->get();
     }
@@ -56,7 +58,7 @@ class Leaderboard extends Model
         return $this->getLeaderboardRepository()->calculatePositions();
     }
 
-    private function getLeaderboardRepository()
+    private function getLeaderboardRepository(): LeaderboardRepository
     {
         return new LeaderboardRepository($this);
     }

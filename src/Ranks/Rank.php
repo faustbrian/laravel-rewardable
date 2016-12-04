@@ -22,10 +22,12 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Ranks;
 
-use BrianFaust\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Rank extends Model implements HasMedia
 {
@@ -34,17 +36,17 @@ class Rank extends Model implements HasMedia
 
     protected $dates = ['awarded_at', 'revoked_at'];
 
-    public function rankable()
+    public function rankable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    public function requirementType()
+    public function requirementType(): BelongsTo
     {
         return $this->belongsTo(CreditType::class, 'requirement_type_id');
     }
 
-    public function getPresenterClass()
+    public function getPresenterClass(): string
     {
         return RankPresenter::class;
     }
