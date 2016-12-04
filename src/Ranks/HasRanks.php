@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Ranks;
 
-trait Rankable
+trait HasRanks
 {
     public function ranks()
     {

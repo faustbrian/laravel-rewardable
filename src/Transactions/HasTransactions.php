@@ -26,7 +26,7 @@ use BrianFaust\Rewardable\Credits\CreditType;
 use BrianFaust\Rewardable\Exceptions\InsufficientFundsException;
 use BrianFaust\Rewardable\Transaction\Transaction;
 
-trait HasTransactionsTrait
+trait HasTransactions
 {
     public function transactions()
     {

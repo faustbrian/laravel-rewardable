@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Credits;
 
-trait HasCreditsTrait
+trait HasCredits
 {
     public function credits()
     {

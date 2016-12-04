@@ -30,23 +30,22 @@ php artisan vendor:publish --provider="BrianFaust\Rewardable\RewardableServicePr
 
 namespace App;
 
-// use BrianFaust\Rewardable\Traits\HasBadgesTrait;
-// use BrianFaust\Rewardable\Traits\HasCreditsTrait;
-// use BrianFaust\Rewardable\Traits\HasRanksTrait;
-// use BrianFaust\Rewardable\Traits\HasTransactionsTrait;
+// use BrianFaust\Rewardable\Badges\HasBadges;
+// use BrianFaust\Rewardable\Credits\HasCredits;
+// use BrianFaust\Rewardable\Ranks\HasRanks;
+// use BrianFaust\Rewardable\Transactions\HasTransactions;
 use BrianFaust\Rewardable\HasRewardsTrait;
-use BrianFaust\Rewardable\Interfaces\HasRewards;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model implements HasRewards
+class User extends Model
 {
-    use HasRewardsTrait;
+    use HasRewards;
 
-    // these can be required one-by-one if you don't need all and don't use RewardableTrait
-    // use HasBadgesTrait;
-    // use HasCreditsTrait;
-    // use HasRanksTrait;
-    // use HasTransactionsTrait;
+    // these can be required one-by-one if you don't need all and don't use HasRewards
+    // use HasBadges;
+    // use HasCredits;
+    // use HasRanks;
+    // use HasTransactions;
 }
 ```
 

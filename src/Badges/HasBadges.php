@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Badges;
 
-trait HasBadgesTrait
+trait HasBadges
 {
     public function badges()
     {
