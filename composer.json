@@ -10,7 +10,7 @@
     }],
     "require": {
         "php": "^7.1",
-        "illuminate/database": "5.3.*",
+        "illuminate/database": "5.3.* || 5.4.*",
         "faustbrian/laravel-service-provider": "^1.0",
         "faustbrian/eloquent-models": "^1.0",
         "faustbrian/eloquent-presenter": "^1.0",
