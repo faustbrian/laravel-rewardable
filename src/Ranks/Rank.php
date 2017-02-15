@@ -23,16 +23,19 @@ declare(strict_types=1);
 namespace BrianFaust\Rewardable\Ranks;
 
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
+use BrianFaust\Rewardable\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Rank extends Model implements HasMedia
+class Rank extends BaseModel implements HasMedia
 {
     use HasMediaTrait;
     use PresentableTrait;
+
+    protected $table = 'rank';
 
     protected $dates = ['awarded_at', 'revoked_at'];
 

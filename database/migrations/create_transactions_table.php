@@ -14,12 +14,17 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateTransactionsTable extends Migration
 {
+    public function __construct()
+    {
+        $this->table_prefix = config('rewardable.database.table_prefix');
+    }
+
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create($this->table_prefix . 'transactions', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->morphs('transactionable');
+            $table->morphs('transaction');
             $table->integer('amount');
             $table->json('meta')->nullable();
 
@@ -31,6 +36,6 @@ class CreateTransactionsTable extends Migration
 
     public function down()
     {
-        Schema::drop('transactions');
+        Schema::drop($this->table_prefix . 'transactions');
     }
 }

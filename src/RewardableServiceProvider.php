@@ -28,6 +28,9 @@ class RewardableServiceProvider extends AbstractServiceProvider
 {
     public function boot(): void
     {
+        $this->publishes([
+            __DIR__.'/../config/rewardable.php' => config_path('rewardable.php'),
+        ]);
         $this->publishMigrations();
     }
 

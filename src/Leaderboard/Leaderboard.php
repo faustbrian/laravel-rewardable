@@ -22,12 +22,15 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Leaderboard;
 
+use BrianFaust\Rewardable\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Collection;
 
-class Leaderboard extends Model
+class Leaderboard extends BaseModel
 {
+    protected $table = 'leaderboard';
+
     public function boardable(): MorphTo
     {
         return $this->morphTo();

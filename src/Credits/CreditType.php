@@ -23,15 +23,18 @@ declare(strict_types=1);
 namespace BrianFaust\Rewardable\Credits;
 
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
+use BrianFaust\Rewardable\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class CreditType extends Model
+class CreditType extends BaseModel
 {
     use HasSlug;
     use PresentableTrait;
+
+    protected $table = 'credit_types';
 
     public function credits(): HasMany
     {

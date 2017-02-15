@@ -23,16 +23,19 @@ declare(strict_types=1);
 namespace BrianFaust\Rewardable\Badges;
 
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
+use BrianFaust\Rewardable\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Badge extends Model implements HasMedia
+class Badge extends BaseModel implements HasMedia
 {
     use HasMediaTrait;
     use PresentableTrait;
+
+    protected $table = 'badge';
 
     protected $dates = ['awarded_at', 'revoked_at'];
 

@@ -14,9 +14,14 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateLeaderboardTable extends Migration
 {
+    public function __construct()
+    {
+        $this->table_prefix = config('rewardable.database.table_prefix');
+    }
+
     public function up()
     {
-        Schema::create('leaderboard', function (Blueprint $table) {
+        Schema::create($this->table_prefix . 'leaderboard', function (Blueprint $table) {
             $table->increments('id');
 
             $table->morphs('boardable');
@@ -29,6 +34,6 @@ class CreateLeaderboardTable extends Migration
 
     public function down()
     {
-        Schema::drop('leaderboard');
+        Schema::drop($this->table_prefix . 'leaderboard');
     }
 }

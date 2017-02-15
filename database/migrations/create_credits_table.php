@@ -14,9 +14,14 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateCreditsTable extends Migration
 {
+    public function __construct()
+    {
+        $this->table_prefix = config('rewardable.database.table_prefix');
+    }
+
     public function up()
     {
-        Schema::create('credits', function (Blueprint $table) {
+        Schema::create($this->table_prefix . 'credits', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('credit_type_id');
@@ -38,6 +43,6 @@ class CreateCreditsTable extends Migration
 
     public function down()
     {
-        Schema::drop('credits');
+        Schema::drop($this->table_prefix . 'credits');
     }
 }

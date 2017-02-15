@@ -23,14 +23,19 @@ declare(strict_types=1);
 namespace BrianFaust\Rewardable\Credits;
 
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
+use BrianFaust\Rewardable\BaseModel;
 use BrianFaust\Rewardable\Repositories\CreditRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Credit extends Model
+class Credit extends BaseModel
 {
     use PresentableTrait;
+
+    protected $fillable = ['credit_type_id', 'name', 'amount'];
+
+    protected $table = 'credits';
 
     protected $dates = ['awarded_at', 'revoked_at'];
 

@@ -22,16 +22,19 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Transactions;
 
+use BrianFaust\Rewardable\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Transaction extends Model
+class Transaction extends BaseModel
 {
+    protected $table = 'transactions';
+
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $casts = ['meta' => 'array'];
 
-    public function transactionable(): MorphTo
+    public function transaction(): MorphTo
     {
         return $this->morphTo();
     }

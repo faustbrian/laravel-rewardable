@@ -14,9 +14,15 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateBadgesTable extends Migration
 {
+    public function __construct()
+    {
+        $this->table_prefix = config('rewardable.database.table_prefix');
+    }
+
     public function up()
     {
-        Schema::create('badges', function (Blueprint $table) {
+
+        Schema::create($this->table_prefix . 'badges', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('name');
@@ -30,7 +36,7 @@ class CreateBadgesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('badges_awarded', function (Blueprint $table) {
+        Schema::create($this->table_prefix . 'badges_awarded', function (Blueprint $table) {
             $table->integer('badge_id');
 
             $table->morphs('badgeable');
@@ -45,7 +51,7 @@ class CreateBadgesTable extends Migration
 
     public function down()
     {
-        Schema::drop('badges');
-        Schema::drop('badges_awarded');
+        Schema::drop($this->table_prefix . 'badges');
+        Schema::drop($this->table_prefix . 'badges_awarded');
     }
 }

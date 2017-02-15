@@ -24,15 +24,24 @@ namespace BrianFaust\Rewardable\Transactions;
 
 use BrianFaust\Rewardable\Credits\CreditType;
 use BrianFaust\Rewardable\Exceptions\InsufficientFundsException;
-use BrianFaust\Rewardable\Transaction\Transaction;
+use BrianFaust\Rewardable\Transactions\Transaction;
 
 trait HasTransactions
 {
+    /**
+     * @return mixed
+     */
     public function transactions()
     {
-        return $this->morphMany(Transaction::class, 'transactionable');
+        return $this->morphMany(Transaction::class, 'transaction');
     }
 
+    /**
+     * @param $amount
+     * @param $typeId
+     * @return $this|bool
+     * @throws InsufficientFundsException
+     */
     public function chargeCredits($amount, $typeId)
     {
         // Check if the type of credit exists
@@ -43,7 +52,7 @@ trait HasTransactions
         }
 
         // check if the Model has sufficient balance to trade
-        if ($this->getBalanceByType($type->slug) < $amount) {
+        if ($this->getBalanceByType($type->id) < $amount) {
             throw new InsufficientFundsException(
                 $this, $this->id, $this->getBalanceByType($type->id) - $amount
             );

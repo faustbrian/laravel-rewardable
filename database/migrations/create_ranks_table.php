@@ -14,9 +14,14 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateRanksTable extends Migration
 {
+    public function __construct()
+    {
+        $this->table_prefix = config('rewardable.database.table_prefix');
+    }
+
     public function up()
     {
-        Schema::create('ranks', function (Blueprint $table) {
+        Schema::create($this->table_prefix . 'ranks', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('name');
@@ -30,7 +35,7 @@ class CreateRanksTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('ranks_awarded', function (Blueprint $table) {
+        Schema::create($this->table_prefix . 'ranks_awarded', function (Blueprint $table) {
             $table->integer('rank_id');
 
             $table->morphs('rankable');
@@ -45,7 +50,7 @@ class CreateRanksTable extends Migration
 
     public function down()
     {
-        Schema::drop('ranks');
-        Schema::drop('ranks_awarded');
+        Schema::drop($this->table_prefix . 'ranks');
+        Schema::drop($this->table_prefix . 'ranks_awarded');
     }
 }
