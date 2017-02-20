@@ -30,7 +30,7 @@ class Offer extends BaseModel
 
     protected $presenter = 'OfferPresenter';
 
-    protected $fillable = ['title', 'description', 'amount', 'valid_from', 'valid_to'];
+    protected $fillable = ['title', 'description', 'amount', 'valid_from', 'valid_to', 'meta', 'claimed_at'];
 
     protected $table = 'offers';
 

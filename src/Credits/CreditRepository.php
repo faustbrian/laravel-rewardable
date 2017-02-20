@@ -52,6 +52,7 @@ class CreditRepository
     public function getBalance()
     {
         $transactions = $this->model->transactions()->sum('amount');
+        \Log::debug("Transactions: ".$transactions);
         $credits = $this->getTotalCredit();
 
         return $credits - $transactions;
@@ -67,7 +68,7 @@ class CreditRepository
                              ->sum('amount');
 
         $credits = $this->getTotalCreditByType($type->id);
-
+        \Log::debug("Transactions: ".$transactions);
         return $credits - $transactions;
     }
 

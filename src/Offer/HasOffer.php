@@ -8,6 +8,8 @@
 
 namespace BrianFaust\Rewardable\Offer;
 
+use BrianFaust\Rewardable\Transactions\Transaction;
+
 trait HasOffer
 {
     /**
@@ -29,8 +31,18 @@ trait HasOffer
     public function claimOffer(Offer $offer)
     {
         // Check if the Model has sufficient balance to claim offer
-        if ($this->getBalance() < $offer->amount) {
+        if ($this->getBalance() >= $offer->amount) {
+            // All fine, take the cash
+            $transaction = (new Transaction())->fill([
+                'amount'         => $offer->amount,
+                'credit_type_id' => 1,
+            ]);
 
+            $this->transactions()->save($transaction);
+
+            $offer->claimed_at = \Carbon\Carbon::now();
+
+            $offer->save();
         }
     }
 
