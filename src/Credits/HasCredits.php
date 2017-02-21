@@ -45,6 +45,7 @@ trait HasCredits
 
     /**
      * @param $type CreditType
+     *
      * @return integer
      */
     public function getCreditByType($type)
@@ -62,6 +63,7 @@ trait HasCredits
 
     /**
      * @param $type CreditType
+     *
      * @return int
      */
     public function getBalanceByType($type)
@@ -109,6 +111,7 @@ trait HasCredits
 
     /**
      * @param $credits Illuminate\Database\Eloquent\Collection
+     *
      * @return void
      */
     public function revokeCredits($credits)
