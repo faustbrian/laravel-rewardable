@@ -36,7 +36,7 @@ trait HasCredits
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getCredit()
     {
@@ -46,7 +46,7 @@ trait HasCredits
     /**
      * @param $type CreditType
      *
-     * @return integer
+     * @return int
      */
     public function getCreditByType($type)
     {
