@@ -23,8 +23,7 @@ declare(strict_types=1);
 namespace BrianFaust\Rewardable\Credits;
 
 /**
- * Class HasCredits
- * @package BrianFaust\Rewardable\Credits
+ * Class HasCredits.
  */
 trait HasCredits
 {
@@ -54,7 +53,7 @@ trait HasCredits
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getBalance()
     {
@@ -63,7 +62,7 @@ trait HasCredits
 
     /**
      * @param $type CreditType
-     * @return integer
+     * @return int
      */
     public function getBalanceByType($type)
     {
@@ -71,7 +70,7 @@ trait HasCredits
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getSpendCredits()
     {
@@ -80,6 +79,7 @@ trait HasCredits
 
     /**
      * @param $credit Credit
+     *
      * @return Credit
      */
     public function grantCredit($credit)
@@ -89,6 +89,7 @@ trait HasCredits
 
     /**
      * @param $credits Illuminate\Database\Eloquent\Collection
+     *
      * @return void
      */
     public function grantCredits($credits)
@@ -98,6 +99,7 @@ trait HasCredits
 
     /**
      * @param $credit Credit
+     *
      * @return void
      */
     public function revokeCredit($credit)
@@ -124,6 +126,7 @@ trait HasCredits
 
     /**
      * @param $credits Illuminate\Database\Eloquent\Collection
+     *
      * @return void
      */
     public function reGrantCredits($credits)
