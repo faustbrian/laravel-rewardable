@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Rewardable.
  *
@@ -14,17 +11,14 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable;
 
-use BrianFaust\ServiceProvider\AbstractServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
-class RewardableServiceProvider extends AbstractServiceProvider
+class RewardableServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function boot()
     {
-        $this->publishMigrations();
-    }
-
-    public function getPackageName(): string
-    {
-        return 'rewardable';
+        $this->publishes([
+            __DIR__.'/../database/migrations' => database_path('migrations'),
+        ], 'migrations');
     }
 }

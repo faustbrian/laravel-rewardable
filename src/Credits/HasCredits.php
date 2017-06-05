@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Rewardable.
  *
@@ -83,8 +80,6 @@ trait HasCredits
 
     /**
      * @param $credits Illuminate\Database\Eloquent\Collection
-     *
-     * @return void
      */
     public function grantCredits($credits)
     {
@@ -93,8 +88,6 @@ trait HasCredits
 
     /**
      * @param $credit Credit
-     *
-     * @return void
      */
     public function revokeCredit($credit)
     {
@@ -103,17 +96,12 @@ trait HasCredits
 
     /**
      * @param $credits Illuminate\Database\Eloquent\Collection
-     *
-     * @return void
      */
     public function revokeCredits($credits)
     {
         return $this->getCreditRepository()->revokeCredits($credits);
     }
 
-    /**
-     * @return void
-     */
     public function revokeAllCredits()
     {
         return $this->getCreditRepository()->revokeAllCredits();
@@ -121,8 +109,6 @@ trait HasCredits
 
     /**
      * @param $credits Illuminate\Database\Eloquent\Collection
-     *
-     * @return void
      */
     public function reGrantCredits($credits)
     {

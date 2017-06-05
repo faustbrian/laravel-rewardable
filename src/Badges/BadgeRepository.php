@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Rewardable.
  *
@@ -92,7 +89,7 @@ class BadgeRepository
         if ($badge->count() && empty($badge->revoked_at)) {
             $this->getBadgePivotBuilder($badge->id)->update([
                 'revoke_reason' => $revokeReason,
-                'revoked_at'    => Carbon::now(),
+                'revoked_at' => Carbon::now(),
             ]);
         }
     }

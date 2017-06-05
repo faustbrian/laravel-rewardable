@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Rewardable.
  *
@@ -43,7 +40,7 @@ trait HasTransactions
 
         // All fine, take the cash
         $transaction = (new Transaction())->fill([
-            'amount'         => $amount,
+            'amount' => $amount,
             'credit_type_id' => $type->id,
         ]);
 

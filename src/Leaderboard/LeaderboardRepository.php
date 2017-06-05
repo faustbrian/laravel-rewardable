@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Rewardable.
  *
@@ -30,7 +27,7 @@ class LeaderboardRepository
 
         // data for create and update
         $data = [
-            'boardable_id'   => $model->id,
+            'boardable_id' => $model->id,
             'boardable_type' => get_class($model),
             // 'position' => $position,
             'experience' => $experience,
