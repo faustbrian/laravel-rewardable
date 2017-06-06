@@ -89,7 +89,7 @@ class BadgeRepository
         if ($badge->count() && empty($badge->revoked_at)) {
             $this->getBadgePivotBuilder($badge->id)->update([
                 'revoke_reason' => $revokeReason,
-                'revoked_at' => Carbon::now(),
+                'revoked_at'    => Carbon::now(),
             ]);
         }
     }
