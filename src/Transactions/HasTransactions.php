@@ -40,7 +40,7 @@ trait HasTransactions
 
         // All fine, take the cash
         $transaction = (new Transaction())->fill([
-            'amount'         => $amount,
+            'amount' => $amount,
             'credit_type_id' => $type->id,
         ]);
 

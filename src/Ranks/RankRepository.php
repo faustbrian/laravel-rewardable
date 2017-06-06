@@ -89,7 +89,7 @@ class RankRepository
         if ($rank->count() && empty($rank->revoked_at)) {
             $this->getRankPivotBuilder($rank->id)->update([
                 'revoke_reason' => $revokeReason,
-                'revoked_at'    => Carbon::now(),
+                'revoked_at' => Carbon::now(),
             ]);
         }
     }
