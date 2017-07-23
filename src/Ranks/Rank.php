@@ -11,11 +11,11 @@
 
 namespace BrianFaust\Rewardable\Ranks;
 
-use BrianFaust\Eloquent\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use BrianFaust\Eloquent\Presenter\PresentableTrait;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 class Rank extends Model implements HasMedia

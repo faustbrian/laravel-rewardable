@@ -11,11 +11,11 @@
 
 namespace BrianFaust\Rewardable\Credits;
 
-use BrianFaust\Eloquent\Presenter\PresentableTrait;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Illuminate\Database\Eloquent\Model;
+use BrianFaust\Eloquent\Presenter\PresentableTrait;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CreditType extends Model
 {
