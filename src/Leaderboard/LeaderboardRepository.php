@@ -59,11 +59,11 @@ class LeaderboardRepository
         $badges = $model->badges()->count();
         $ranks = $model->ranks()->count();
 
-        if (!$badges) {
+        if (! $badges) {
             $badges = 1;
         }
 
-        if (!$ranks) {
+        if (! $ranks) {
             $ranks = 1;
         }
 
