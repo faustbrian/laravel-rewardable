@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Credits;
 
-use Illuminate\Database\Eloquent\Model;
 use BrianFaust\Eloquent\Presenter\PresentableTrait;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use BrianFaust\Rewardable\Repositories\CreditRepository;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Credit extends Model
 {

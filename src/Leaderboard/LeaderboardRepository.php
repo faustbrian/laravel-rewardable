@@ -29,7 +29,7 @@ class LeaderboardRepository
 
         // data for create and update
         $data = [
-            'boardable_id' => $model->id,
+            'boardable_id'   => $model->id,
             'boardable_type' => get_class($model),
             // 'position' => $position,
             'experience' => $experience,
@@ -61,11 +61,11 @@ class LeaderboardRepository
         $badges = $model->badges()->count();
         $ranks = $model->ranks()->count();
 
-        if (! $badges) {
+        if (!$badges) {
             $badges = 1;
         }
 
-        if (! $ranks) {
+        if (!$ranks) {
             $ranks = 1;
         }
 
