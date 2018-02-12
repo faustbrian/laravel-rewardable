@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Badges;
 
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
 use BrianFaust\Rewardable\Exceptions\InsufficientFundsException;
 use BrianFaust\Rewardable\Exceptions\InvalidCreditTypeException;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class BadgeRepository
 {
@@ -37,7 +37,7 @@ class BadgeRepository
         $query = DB::table('badges_awarded')
                     ->where('badgeable_id', $this->model->id);
 
-        if (! empty($type)) {
+        if (!empty($type)) {
             $query = $query->where('badgeable_type', $type);
         }
 
@@ -49,7 +49,7 @@ class BadgeRepository
         // Check if the type of credit exists
         $type = $badge->requirementType;
 
-        if (! $type) {
+        if (!$type) {
             throw new InvalidCreditTypeException($badge->requirement_type_id);
         }
 
@@ -65,7 +65,7 @@ class BadgeRepository
         $record = $this->model->badges()
                               ->where('badge_id', '=', $badge->id)
                               ->count();
-        if (! $record) {
+        if (!$record) {
             $this->model->badges()->attach($badge, [
                 'awarded_at' => Carbon::now(),
             ]);
@@ -91,7 +91,7 @@ class BadgeRepository
         if ($badge->count() && empty($badge->revoked_at)) {
             $this->getBadgePivotBuilder($badge->id)->update([
                 'revoke_reason' => $revokeReason,
-                'revoked_at' => Carbon::now(),
+                'revoked_at'    => Carbon::now(),
             ]);
         }
     }

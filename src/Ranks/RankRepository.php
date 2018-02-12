@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace BrianFaust\Rewardable\Ranks;
 
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
 use BrianFaust\Rewardable\Exceptions\InsufficientFundsException;
 use BrianFaust\Rewardable\Exceptions\InvalidCreditTypeException;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class RankRepository
 {
@@ -37,7 +37,7 @@ class RankRepository
         $query = DB::table('ranks_awarded')
                     ->where('rankable_id', $this->model->id);
 
-        if (! empty($type)) {
+        if (!empty($type)) {
             $query = $query->where('rankable_type', $type);
         }
 
@@ -49,7 +49,7 @@ class RankRepository
         // Check if the type of credit exists
         $type = $rank->requirementType;
 
-        if (! $type) {
+        if (!$type) {
             throw new InvalidCreditTypeException($rank->requirement_type_id);
         }
 
@@ -65,7 +65,7 @@ class RankRepository
         $record = $this->model->ranks()
                               ->where('rank_id', '=', $rank->id)
                               ->count();
-        if (! $record) {
+        if (!$record) {
             $this->model->ranks()->attach($rank, [
                 'awarded_at' => Carbon::now(),
             ]);
@@ -91,7 +91,7 @@ class RankRepository
         if ($rank->count() && empty($rank->revoked_at)) {
             $this->getRankPivotBuilder($rank->id)->update([
                 'revoke_reason' => $revokeReason,
-                'revoked_at' => Carbon::now(),
+                'revoked_at'    => Carbon::now(),
             ]);
         }
     }
