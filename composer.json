@@ -10,8 +10,8 @@
     }],
     "require": {
         "php": "^7.1",
-        "illuminate/database": "5.5.* || 5.6.* || 5.7.*",
-        "illuminate/support": "5.5.* || 5.6.* || 5.7.*",
+        "illuminate/database": "^5.6",
+        "illuminate/support": "^5.6",
         "faustbrian/eloquent-models": "^1.0",
         "faustbrian/eloquent-presenter": "^1.0",
         "nesbot/carbon": "^1.22",
