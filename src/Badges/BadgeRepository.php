@@ -5,16 +5,16 @@ declare(strict_types=1);
 /*
  * This file is part of Laravel Rewardable.
  *
- * (c) Brian Faust <hello@brianfaust.de>
+ * (c) Brian Faust <hello@basecode.sh>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Rewardable\Badges;
+namespace Artisanry\Rewardable\Badges;
 
-use BrianFaust\Rewardable\Exceptions\InsufficientFundsException;
-use BrianFaust\Rewardable\Exceptions\InvalidCreditTypeException;
+use Artisanry\Rewardable\Exceptions\InsufficientFundsException;
+use Artisanry\Rewardable\Exceptions\InvalidCreditTypeException;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;

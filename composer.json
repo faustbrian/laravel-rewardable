@@ -1,19 +1,19 @@
 {
-    "name": "faustbrian/laravel-rewardable",
+    "name": "artisanry/rewardable",
     "description": "Credits, Badges and Ranks for Eloquent Models for Laravel 5",
-    "keywords": ["laravel", "framework", "Laravel-rewardable", "Laravel Rewardable", "Brian Faust", "faustbrian"],
+    "keywords": ["laravel", "framework", "Laravel-rewardable", "Laravel Rewardable"],
     "license": "MIT",
     "authors": [{
         "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://brianfaust.me"
+        "email": "hello@basecode.sh",
+        "homepage": "https://basecode.sh"
     }],
     "require": {
         "php": "^7.1",
         "illuminate/database": "^5.6",
         "illuminate/support": "^5.6",
-        "faustbrian/eloquent-models": "^1.0",
-        "faustbrian/eloquent-presenter": "^1.0",
+        "artisanry/eloquent-models": "^1.0",
+        "artisanry/eloquent-presenter": "^1.0",
         "nesbot/carbon": "^1.22",
         "spatie/laravel-medialibrary": "^6.6",
         "spatie/laravel-sluggable": "^2.1"
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\Rewardable\\": "src/"
+            "Artisanry\\Rewardable\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\Rewardable\\": "tests"
+            "Artisanry\\Tests\\Rewardable\\": "tests"
         }
     },
     "config": {
@@ -43,7 +43,7 @@
         },
         "laravel": {
             "providers": [
-                "BrianFaust\\Rewardable\\RewardableServiceProvider"
+                "Artisanry\\Rewardable\\RewardableServiceProvider"
             ]
         }
     },

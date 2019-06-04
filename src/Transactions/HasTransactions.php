@@ -5,17 +5,17 @@ declare(strict_types=1);
 /*
  * This file is part of Laravel Rewardable.
  *
- * (c) Brian Faust <hello@brianfaust.de>
+ * (c) Brian Faust <hello@basecode.sh>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Rewardable\Transactions;
+namespace Artisanry\Rewardable\Transactions;
 
-use BrianFaust\Rewardable\Credits\CreditType;
-use BrianFaust\Rewardable\Exceptions\InsufficientFundsException;
-use BrianFaust\Rewardable\Transaction\Transaction;
+use Artisanry\Rewardable\Credits\CreditType;
+use Artisanry\Rewardable\Exceptions\InsufficientFundsException;
+use Artisanry\Rewardable\Transaction\Transaction;
 
 trait HasTransactions
 {
