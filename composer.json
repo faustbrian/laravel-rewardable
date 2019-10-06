@@ -24,9 +24,9 @@
         "spatie/laravel-sluggable": "^2.1"
     },
     "require-dev": {
-        "graham-campbell/testbench": "^5.0",
-        "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "^6.5"
+        "graham-campbell/testbench": "5.3.1",
+        "mockery/mockery": "1.2.4",
+        "phpunit/phpunit": "6.5.14"
     },
     "autoload": {
         "psr-4": {
