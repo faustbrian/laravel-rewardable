@@ -19,7 +19,7 @@
         "illuminate/support": "^5.8|^6.0",
         "artisanry/eloquent-models": "^2.0.0",
         "artisanry/eloquent-presenter": "^1.0",
-        "nesbot/carbon": "^1.22",
+        "nesbot/carbon": "^2.0.0",
         "spatie/laravel-medialibrary": "^6.6",
         "spatie/laravel-sluggable": "^2.1"
     },
